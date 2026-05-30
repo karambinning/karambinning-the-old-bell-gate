@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Old Bell Gate — A two-room community pub, Hemel Old Town</title>
+<meta name="description" content="The Old Bell Gate. A traditional two-room community pub on St Marys Road, Hemel Hempstead Old Town. Public bar with pool, darts and sports. Saloon bar for a quiet pint. Live music weekends. Open from noon, every day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,600;8..60,1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wainscot:#1E2A22;
+    --moss:#3F5147;
+    --brass:#C7B486;
+    --brass-deep:#9C8550;
+    --cream:#F4EFE6;
+    --cream-warm:#EBE3D2;
+    --ox:#7A2E3A;
+    --rule:rgba(30,42,34,.18);
+    --display:"Playfair Display", "Times New Roman", serif;
+    --body:"Source Serif 4", Georgia, serif;
+    --rhythm:clamp(1rem, .8rem + .4vw, 1.125rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    font-size:var(--rhythm);
+    line-height:1.6;
+    color:var(--wainscot);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 25% 30%, rgba(30,42,34,.04) 0, transparent 50%),
+      radial-gradient(circle at 75% 70%, rgba(122,46,58,.03) 0, transparent 50%);
+    z-index:1;
+    mix-blend-mode:multiply;
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .12  0 0 0 0 .16  0 0 0 0 .13  0 0 0 .08 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    opacity:.55;
+    z-index:2;
+    mix-blend-mode:multiply;
+  }
+  main, header, footer{position:relative;z-index:3}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{text-wrap:balance;font-family:var(--display);font-weight:900;letter-spacing:-.01em;line-height:.95}
+  p{text-wrap:pretty;hyphens:auto}
+
+  /* ── top rule + nav ── */
+  .topstrip{
+    border-top:6px solid var(--wainscot);
+    border-bottom:1px solid var(--rule);
+    background:var(--cream);
+  }
+  .topstrip__inner{
+    max-width:1400px;margin:0 auto;
+    padding:.65rem clamp(1rem,3vw,2rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--moss);
+  }
+  .topstrip__est{font-family:var(--display);font-weight:400;font-style:italic;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--wainscot)}
+  .topstrip__phone{font-weight:600;color:var(--wainscot)}
+  .topstrip__phone::before{content:"☎ ";color:var(--ox)}
+  @media (max-width:560px){
+    .topstrip__est{display:none}
+    .topstrip__inner{justify-content:space-between}
+  }
+
+  /* ── masthead ── */
+  .mast{
+    padding:clamp(2rem,5vw,4rem) clamp(1rem,3vw,2rem) clamp(1.5rem,4vw,3rem);
+    max-width:1400px;margin:0 auto;
+    position:relative;
+  }
+  .mast__eyebrow{
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(1.1rem,1.5vw,1.4rem);
+    color:var(--moss);
+    margin-bottom:.4rem;
+  }
+  .mast__title{
+    display:block;
+    line-height:.86;
+    color:var(--wainscot);
+  }
+  .mast__the{
+    display:block;
+    font-family:var(--display);
+    font-weight:400;
+    font-style:italic;
+    font-size:clamp(1.4rem,3.2vw,2.6rem);
+    color:var(--moss);
+    margin-bottom:-.15em;
+    margin-left:.05em;
+  }
+  .mast__old{
+    display:block;
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(3rem,9vw,8.5rem);
+    letter-spacing:-.02em;
+    text-transform:uppercase;
+  }
+  .mast__bell{
+    display:block;
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(4.5rem,15vw,15rem);
+    letter-spacing:-.04em;
+    text-transform:uppercase;
+    line-height:.82;
+    color:var(--wainscot);
+    position:relative;
+  }
+  .mast__bell::after{
+    content:" · ";
+    color:var(--ox);
+    font-style:italic;
+    font-weight:400;
+    padding:0 .04em;
+  }
+  .mast__gate{
+    display:block;
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(4.5rem,15vw,15rem);
+    letter-spacing:-.04em;
+    text-transform:uppercase;
+    line-height:.82;
+    color:var(--wainscot);
+  }
+  .mast__rule{
+    border:0;
+    border-top:1px solid var(--wainscot);
+    margin:clamp(1.5rem,3vw,2.5rem) 0 clamp(1rem,2vw,1.5rem);
+  }
+  .mast__sub{
+    display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;
+    font-family:var(--body);font-style:italic;
+    font-size:clamp(1rem,1.6vw,1.25rem);
+    color:var(--moss);
+  }
+  .mast__sub span{position:relative}
+  .mast__sub span + span::before{
+    content:"·";position:absolute;left:-1rem;color:var(--brass-deep);font-style:normal;
+  }
+  .mast__bellmark{
+    position:absolute;
+    top:clamp(1.5rem,4vw,3rem);
+    right:clamp(1rem,3vw,2rem);
+    width:clamp(60px,9vw,120px);
+    height:auto;
+    color:var(--ox);
+    opacity:.85;
+  }
+  @media (max-width:780px){
+    .mast__bellmark{display:none}
+  }
+
+  /* ── marquee ── */
+  .marquee{
+    overflow:hidden;
+    background:var(--wainscot);
+    color:var(--cream);
+    border-top:1px solid var(--moss);
+    border-bottom:1px solid var(--moss);
+    padding:1rem 0;
+    --speed:42s;
+  }
+  .marquee__track{
+    display:inline-flex;gap:3rem;white-space:nowrap;
+    animation:scroll var(--speed) linear infinite;
+    font-family:var(--display);
+    font-weight:400;font-style:italic;
+    font-size:clamp(1.2rem,2.2vw,1.9rem);
+  }
+  .marquee__track span{display:inline-flex;align-items:center;gap:3rem}
+  .marquee__track span::after{
+    content:"❦";
+    color:var(--brass);
+    font-style:normal;font-weight:400;
+    font-size:.7em;
+  }
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){
+    .marquee__track{animation:none}
+  }
+
+  /* ── content frame ── */
+  .wrap{max-width:1400px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+  .frame{
+    padding:clamp(3rem,7vw,6rem) 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .frame--moss{
+    background:var(--moss);
+    color:var(--cream);
+    border-bottom:none;
+  }
+  .frame--moss .frame__kicker{color:var(--brass)}
+  .frame--moss .frame__rule{border-top-color:rgba(244,239,230,.25)}
+  .frame__kicker{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.22em;
+    color:var(--moss);
+    margin-bottom:.6rem;
+    font-family:var(--body);
+    font-weight:600;
+  }
+  .frame__h2{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(2.2rem,5vw,4.2rem);
+    letter-spacing:-.02em;
+    margin-bottom:1.2rem;
+    line-height:.95;
+  }
+  .frame__h2 em{font-style:italic;font-weight:400;color:var(--ox)}
+  .frame--moss .frame__h2 em{color:var(--brass)}
+  .frame__lead{
+    font-size:clamp(1.15rem,1.5vw,1.4rem);
+    max-width:48rem;
+    color:var(--moss);
+    line-height:1.5;
+  }
+  .frame--moss .frame__lead{color:var(--cream-warm)}
+
+  /* ── two rooms split ── */
+  .rooms{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:clamp(2rem,5vw,4rem);
+    border:1px solid var(--rule);
+    background:var(--cream-warm);
+  }
+  @media (min-width:780px){
+    .rooms{grid-template-columns:1fr 1px 1fr}
+    .rooms__divider{display:block}
+  }
+  .rooms__divider{
+    display:none;
+    background:var(--rule);
+  }
+  .room{
+    padding:clamp(2rem,4vw,3rem);
+    position:relative;
+  }
+  .room + .room{border-top:1px solid var(--rule)}
+  @media (min-width:780px){
+    .room + .room{border-top:none}
+  }
+  .room__num{
+    font-family:var(--display);
+    font-style:italic;font-weight:400;
+    font-size:1rem;
+    color:var(--brass-deep);
+    margin-bottom:.6rem;
+  }
+  .room__name{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(1.8rem,3.5vw,2.8rem);
+    line-height:1;
+    margin-bottom:1.1rem;
+    color:var(--wainscot);
+  }
+  .room__tag{
+    font-family:var(--display);
+    font-style:italic;font-weight:400;
+    color:var(--ox);
+    font-size:1.1rem;
+    margin-bottom:1.2rem;
+  }
+  .room__copy{
+    color:var(--moss);
+    margin-bottom:1.4rem;
+    max-width:32rem;
+  }
+  .room__list{
+    list-style:none;
+    border-top:1px solid var(--rule);
+  }
+  .room__list li{
+    display:flex;justify-content:space-between;
+    padding:.7rem 0;
+    border-bottom:1px solid var(--rule);
+    font-size:.95rem;
+    align-items:baseline;
+  }
+  .room__list span{
+    font-family:var(--display);
+    font-style:italic;font-weight:400;
+    color:var(--brass-deep);
+    font-size:.85rem;
+    letter-spacing:.04em;
+  }
+
+  /* ── whats on ── */
+  .whatson{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:clamp(2rem,5vw,3.5rem);
+  }
+  @media (min-width:680px){
+    .whatson{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (min-width:1000px){
+    .whatson{grid-template-columns:repeat(4,1fr)}
+  }
+  .card{
+    padding:1.8rem 0;
+    border-top:1px solid rgba(244,239,230,.25);
+    padding-right:1.5rem;
+  }
+  .card__day{
+    font-family:var(--body);
+    font-size:.75rem;text-transform:uppercase;letter-spacing:.22em;
+    color:var(--brass);
+    margin-bottom:.7rem;
+  }
+  .card__title{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(1.4rem,2.2vw,1.9rem);
+    line-height:1.05;
+    margin-bottom:.6rem;
+    color:var(--cream);
+  }
+  .card__copy{
+    font-size:.95rem;
+    line-height:1.55;
+    color:var(--cream-warm);
+  }
+
+  /* ── find us ── */
+  .find{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(2rem,4vw,3rem);
+    margin-top:clamp(2rem,5vw,3.5rem);
+    align-items:start;
+  }
+  @media (min-width:880px){
+    .find{grid-template-columns:1fr 1fr}
+  }
+  .find__block + .find__block{
+    border-top:1px solid var(--rule);
+    padding-top:clamp(2rem,4vw,3rem);
+  }
+  @media (min-width:880px){
+    .find__block + .find__block{
+      border-top:none;
+      padding-top:0;
+      border-left:1px solid var(--rule);
+      padding-left:clamp(2rem,4vw,3rem);
+    }
+  }
+  .find__label{
+    font-family:var(--body);font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.22em;
+    color:var(--moss);
+    margin-bottom:.6rem;
+  }
+  .find__addr{
+    font-family:var(--display);
+    font-size:clamp(1.3rem,2.4vw,1.9rem);
+    line-height:1.25;
+    margin-bottom:1.6rem;
+    font-weight:400;
+  }
+  .find__hours{
+    list-style:none;
+    border-top:1px solid var(--rule);
+    margin-bottom:1.5rem;
+  }
+  .find__hours li{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:.65rem 0;
+    border-bottom:1px solid var(--rule);
+    font-size:.97rem;
+  }
+  .find__hours li b{
+    font-family:var(--display);font-weight:400;
+    text-transform:uppercase;letter-spacing:.18em;
+    font-size:.8rem;
+    color:var(--moss);
+  }
+  .find__phone{
+    display:inline-flex;
+    align-items:baseline;gap:.6rem;
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(1.6rem,3vw,2.4rem);
+    color:var(--wainscot);
+    border-bottom:2px solid var(--brass-deep);
+    padding-bottom:.2rem;
+    transition:color .2s, border-color .2s;
+  }
+  .find__phone:hover{color:var(--ox);border-color:var(--ox)}
+  .find__phone small{
+    font-family:var(--body);font-style:italic;
+    font-size:.85rem;font-weight:400;
+    color:var(--moss);
+  }
+  .find__note{
+    margin-top:1.2rem;
+    font-size:.92rem;
+    color:var(--moss);
+    font-style:italic;
+  }
+
+  /* ── footer ── */
+  footer{
+    background:var(--wainscot);
+    color:var(--cream);
+    padding:clamp(2.5rem,5vw,4rem) 0 clamp(1.5rem,3vw,2.5rem);
+    border-top:6px solid var(--ox);
+  }
+  .foot{
+    max-width:1400px;margin:0 auto;
+    padding:0 clamp(1rem,3vw,2rem);
+    display:grid;grid-template-columns:1fr;gap:2rem;
+  }
+  @media (min-width:780px){
+    .foot{grid-template-columns:2fr 1fr 1fr;gap:3rem}
+  }
+  .foot__letterhead h3{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(1.8rem,3vw,2.4rem);
+    line-height:1;
+    margin-bottom:.7rem;
+  }
+  .foot__letterhead h3 em{font-style:italic;font-weight:400;color:var(--brass)}
+  .foot__letterhead p{
+    font-family:var(--display);font-style:italic;
+    color:var(--cream-warm);
+    max-width:30rem;
+    line-height:1.4;
+    font-size:1.05rem;
+  }
+  .foot__col h4{
+    font-family:var(--body);font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.22em;
+    color:var(--brass);
+    margin-bottom:.9rem;
+    font-weight:600;
+  }
+  .foot__col p, .foot__col a{
+    color:var(--cream-warm);
+    font-size:.95rem;
+    line-height:1.65;
+    display:block;
+  }
+  .foot__col a:hover{color:var(--brass)}
+  .foot__base{
+    max-width:1400px;margin:clamp(2rem,4vw,3rem) auto 0;
+    padding:1.5rem clamp(1rem,3vw,2rem) 0;
+    border-top:1px solid rgba(244,239,230,.15);
+    font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(244,239,230,.55);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;
+  }
+
+  /* ── scroll reveal ── */
+  @supports (animation-timeline: view()){
+    .reveal{
+      animation:rise both;
+      animation-timeline:view();
+      animation-range:entry 5% cover 25%;
+    }
+    @keyframes rise{
+      from{opacity:0;transform:translateY(1.6rem)}
+      to  {opacity:1;transform:translateY(0)}
+    }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="topstrip__inner">
+    <span class="topstrip__est">A Hemel Old Town local · St Marys Road</span>
+    <a class="topstrip__phone" href="tel:+441442215482">01442 215482</a>
+  </div>
+</div>
+
+<header class="mast">
+  <svg class="mast__bellmark" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M32 6c-2 0-3.6 1.4-3.6 3.2v2.6C18 14.4 12 22.6 12 33v18l-5 8h50l-5-8V33c0-10.4-6-18.6-16.4-21.2V9.2C35.6 7.4 34 6 32 6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M28 64a4 4 0 0 0 8 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="32" cy="42" r="1.6" fill="currentColor"/>
+  </svg>
+
+  <p class="mast__eyebrow">Established by the locals, kept by the locals</p>
+  <h1 class="mast__title">
+    <span class="mast__the">The</span>
+    <span class="mast__old">Old</span>
+    <span class="mast__bell">Bell</span>
+    <span class="mast__gate">Gate</span>
+  </h1>
+  <hr class="mast__rule">
+  <div class="mast__sub">
+    <span>A two-room community pub</span>
+    <span>St Marys Road, Hemel Old Town</span>
+    <span>Open from noon, seven days a week</span>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Live music Saturday nights</span>
+    <span>Sky &amp; TNT Sports on the big screens</span>
+    <span>Tring Brewery cask when it's on</span>
+    <span>Pool table · Dartboard · Beer garden</span>
+    <span>Live music Saturday nights</span>
+    <span>Sky &amp; TNT Sports on the big screens</span>
+    <span>Tring Brewery cask when it's on</span>
+    <span>Pool table · Dartboard · Beer garden</span>
+  </div>
+</div>
+
+<main>
+
+  <section class="frame">
+    <div class="wrap">
+      <p class="frame__kicker reveal">Two rooms · One welcome</p>
+      <h2 class="frame__h2 reveal">A working pub on the edge<br>of Hemel <em>Old Town.</em></h2>
+      <p class="frame__lead reveal">
+        Not a gastropub. Not a chain. The Old Bell Gate is the kind of two-room local that still
+        keeps a pool table in the public bar and a quiet pint in the saloon — a small Hertfordshire
+        pub on the outskirts of Hemel Hempstead's historic old town, run for the people who actually
+        live around it.
+      </p>
+
+      <div class="rooms reveal">
+        <article class="room">
+          <p class="room__num">№ I</p>
+          <h3 class="room__name">The Public Bar</h3>
+          <p class="room__tag">Sports on. Cue chalked. Music up.</p>
+          <p class="room__copy">
+            Where the regulars sit. Multiple TVs for the football, rugby and racing on Sky and TNT.
+            Pool table and dartboard kept ready. Live music most Saturdays and alternate Thursdays —
+            the room that finds its volume after seven.
+          </p>
+          <ul class="room__list">
+            <li>Pool table <span>Free play</span></li>
+            <li>Dartboard <span>Bring your own arrows</span></li>
+            <li>Sky Sports + TNT <span>All weekend fixtures</span></li>
+            <li>Live music <span>Sat &amp; alt. Thursday</span></li>
+          </ul>
+        </article>
+        <span class="rooms__divider" aria-hidden="true"></span>
+        <article class="room">
+          <p class="room__num">№ II</p>
+          <h3 class="room__name">The Saloon Bar</h3>
+          <p class="room__tag">Quiet pint. Slow conversation.</p>
+          <p class="room__copy">
+            A separate snug for when you'd rather not hear the match. Smaller, calmer, the room that
+            stays measured. Bring the dog. Settle in. Ten covers across the room and a partly-covered
+            patio garden out the back when the weather agrees.
+          </p>
+          <ul class="room__list">
+            <li>Snug seating <span>About 10 covers</span></li>
+            <li>Patio beer garden <span>Partly covered</span></li>
+            <li>Dog friendly <span>Always welcome</span></li>
+            <li>Wi-Fi <span>Quiet zone</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame frame--moss">
+    <div class="wrap">
+      <p class="frame__kicker reveal">What's usually on</p>
+      <h2 class="frame__h2 reveal">A week at <em>the Bell Gate.</em></h2>
+      <p class="frame__lead reveal">
+        Hours are simple — noon until half past midnight, every day. The events list below is a
+        guide to the regular rhythm of the place; for the actual line-up this week, give us a ring
+        or check Facebook before you set off.
+      </p>
+
+      <div class="whatson reveal">
+        <article class="card">
+          <p class="card__day">Most Saturdays</p>
+          <h3 class="card__title">Live music in the public bar</h3>
+          <p class="card__copy">A regular fixture — local acts, no cover charge. Volume goes up after seven.</p>
+        </article>
+        <article class="card">
+          <p class="card__day">Alternate Thursdays</p>
+          <h3 class="card__title">Midweek music nights</h3>
+          <p class="card__copy">Lower-key than the Saturday slot. Worth a ring ahead to see if it's on this week.</p>
+        </article>
+        <article class="card">
+          <p class="card__day">Every weekend</p>
+          <h3 class="card__title">Sky &amp; TNT Sports</h3>
+          <p class="card__copy">Football, rugby, racing — multiple screens, both subscriptions, full match-day pace.</p>
+        </article>
+        <article class="card">
+          <p class="card__day">Anytime</p>
+          <h3 class="card__title">Pool, darts, a pint of cask</h3>
+          <p class="card__copy">Pool free to play. Tring Brewery cask ale when it's on the line. Snacks behind the bar — rolls, pizza, pies.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame">
+    <div class="wrap">
+      <p class="frame__kicker reveal">Find us</p>
+      <h2 class="frame__h2 reveal">St Marys Road, <em>Hemel Hempstead.</em></h2>
+
+      <div class="find reveal">
+        <div class="find__block">
+          <p class="find__label">The pub</p>
+          <p class="find__addr">
+            The Old Bell Gate<br>
+            St Marys Road<br>
+            Hemel Hempstead<br>
+            Hertfordshire · HP2 5HY
+          </p>
+          <p class="find__label">By bus</p>
+          <p>Bus routes 2 and 3 both stop within a couple of minutes' walk. Small car park to the rear — five spaces, first come, first served.</p>
+          <p class="find__note">On the outskirts of Hemel Hempstead's historic Old Town district.</p>
+        </div>
+        <div class="find__block">
+          <p class="find__label">Hours</p>
+          <ul class="find__hours">
+            <li><b>Mon – Sun</b><span>Noon – 12:30 am</span></li>
+          </ul>
+          <p class="find__label">Ring the pub</p>
+          <a class="find__phone" href="tel:+441442215482">01442 215482 <small>— Hemel</small></a>
+          <p class="find__note">Booking isn't usually needed — pop in. For Saturday-night music or a sports fixture worth catching, a quick call ahead never hurts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="foot__letterhead">
+      <h3>The Old <em>Bell</em> Gate</h3>
+      <p>
+        A two-room community pub on St Marys Road, on the edge of Hemel Hempstead's
+        historic old town. Open noon till late, every day of the week.
+      </p>
+    </div>
+    <div class="foot__col">
+      <h4>Address</h4>
+      <p>St Marys Road<br>Hemel Hempstead<br>Hertfordshire HP2 5HY</p>
+    </div>
+    <div class="foot__col">
+      <h4>Call us</h4>
+      <a href="tel:+441442215482">01442 215482</a>
+      <h4 style="margin-top:1.2rem">Open</h4>
+      <p>Noon – 12:30 am<br>Seven days a week</p>
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>The Old Bell Gate · Hemel Hempstead</span>
+    <span>A two-room local · HP2 5HY</span>
+  </div>
+</footer>
+
+</body>
+</html>
